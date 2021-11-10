@@ -6,13 +6,15 @@
   <li>You can find us at: <%= @restaurant.address %></li>
   <li>Give us a call at: <%= @restaurant.phone_number %></li>
 </ul>
-<%= link_to 'Rate us', new_restaurant_review_path(@restaurant), class: 'btn btn-primary btn-sm' %>
+<%= link_to 'Rate us ⭐️', new_restaurant_review_path(@restaurant), class: 'btn btn-primary btn-sm' %>
 <br>
 <br>
 <h3>Reviews</h3>
-<% @restaurant.reviews.each do |rev| %>
-  <p><%= '⭐️' *  rev.rating %></p>
-  <p><%= rev.content %></p>
-  <% end %>
 
+<% @restaurant.reviews.each do |rev| %>
+  <div class="container rev">
+    <p><%= '⭐️' *  rev.rating %></p>
+    <p><%= rev.content %></p>
+  </div>
+<% end %>
 <%= link_to '< back', restaurants_path, class: 'btn btn-outline-primary' %>
